@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaperTCG-UI-Kit Ver0.1</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>PaperTCG-UI-Kit</h1>
+        <p>紙TCG 配信・編集補助UI Ver0.1</p>
+    </header>
+
+<section class="video-section">
+
+    <h2>動画</h2>
+
+<div id="video-time">
+    0.00 / 0.00 秒
+</div>
+
+<input
+    type="file"
+    id="video-file"
+    accept="video/mp4"
+>
+
+<div class="video-area">
+
+    <video
+        id="video-preview"
+        controls
+    ></video>
+
+    <div id="video-overlay"></div>
+
+</div>
+
+<div id="current-time">
+    00:00.00
+</div>
+
+</section>
+
+
+    <!-- ========================== -->
+    <!-- プレイヤー切替 -->
+    <!-- ========================== -->
+
+    <section>
+
+        <h2>プレイヤー</h2>
+
+        <button id="player-self" class="player-button active">
+            自分
+        </button>
+
+        <button id="player-opponent" class="player-button">
+            相手
+        </button>
+
+        <p>
+            現在：
+            <strong id="current-player">自分</strong>
+        </p>
+
+    </section>
+
+
+    <!-- ========================== -->
+    <!-- 盤面 -->
+    <!-- ========================== -->
+
+    <section>
+
+        <h2>盤面</h2>
+
+        <div id="board">
+
+            <div
+                class="field opponent-field"
+                data-player="opponent"
+            >
+                <span class="field-label">相手</span>
+            </div>
+
+            <div
+                class="field self-field"
+                data-player="self"
+            >
+                <span class="field-label">自分</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+<section>
+
+    <h2>操作</h2>
+
+<button id="export-video">動画を書き出す</button>
+
+    <button id="target-button">
+        対象
+    </button>
+
+    <button id="eraser-button">
+        消しゴム
+    </button>
+
+    <button id="reset-number-button">
+        番号リセット
+    </button>
+
+    <hr>
+
+ <button onclick="addHistory('発動')">
+    履歴：発動
+</button>
+
+<button onclick="addHistory('対象')">
+    履歴：対象
+</button>
+
+<button onclick="addHistory('解決')">
+    履歴：解決
+</button>
+</section>
+
+</section>
+
+    <!-- ========================== -->
+    <!-- 状態 -->
+    <!-- ========================== -->
+
+    <section>
+
+        <h2>状態</h2>
+
+        <p id="status">
+            カードをタップしてください。
+        </p>
+
+    </section>
+
+<!-- ========================== -->
+<!-- 編集履歴 -->
+<!-- ========================== -->
+
+<section>
+
+    <h2>編集履歴</h2>
+
+    <div id="history">
+        <p>まだ編集履歴はありません。</p>
+    </div>
+
+</section>
+    <!-- ========================== -->
+    <!-- プレビュー -->
+    <!-- ========================== -->
+
+    <section>
+
+        <h2>UIプレビュー</h2>
+
+        <div id="ui-display"></div>
+
+    </section>
+
+
+  <script type="module" src="app.js"></script>
+
+
+
+</body>
+
+</html>
