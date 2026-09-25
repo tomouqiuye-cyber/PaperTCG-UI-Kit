@@ -780,13 +780,27 @@ function addHistory(text) {
     const video =
         document.getElementById("video-preview");
 
-    const history = {
-        text: text,
-        time: video.currentTime,
-        markerId: selectedMarkers.length === 1
-            ? selectedMarkers[0].id
-            : null
-    };
+const history = {
+    text: text,
+    time: video.currentTime,
+    duration: 3,
+
+    markerId: selectedMarkers.length === 1
+        ? selectedMarkers[0].id
+        : null,
+
+    markerNumber: selectedMarkers.length === 1
+        ? selectedMarkers[0].number
+        : null,
+
+    x: selectedMarkers.length === 1
+        ? selectedMarkers[0].x
+        : null,
+
+    y: selectedMarkers.length === 1
+        ? selectedMarkers[0].y
+        : null
+};
 
     editHistory.push(history);
 
