@@ -149,8 +149,8 @@ editHistory.forEach(history => {
         return;
     }
 
-    const startTime = history.time;
-    const endTime = history.time + 3;
+ const startTime = history.time;
+const endTime = history.time + history.duration;
 
     if (
         currentTime >= startTime &&
