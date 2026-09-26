@@ -828,11 +828,11 @@ const history = {
             overlayMarker.style.position =
                 "absolute";
 
-            overlayMarker.style.left =
-                marker.x + "px";
+overlayMarker.style.left =
+    history.x + "px";
 
-            overlayMarker.style.top =
-                marker.y + "px";
+overlayMarker.style.top =
+    history.y + "px";
 
             overlayMarker.style.fontSize =
                 "30px";
