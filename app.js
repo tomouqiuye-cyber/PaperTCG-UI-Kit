@@ -895,25 +895,9 @@ function renderHistory() {
 
         number.textContent =
             index + 1;
-let markerNumber = "";
 
-if (item.markerId !== null) {
-
-    const historyMarker =
-        markers.find(marker =>
-            marker.id === item.markerId
-        );
-
-if (historyMarker) {
-    markerNumber =
-        historyMarker.number;
-
-    console.log("履歴で見つかった番号:", markerNumber);
-} else {
-    console.log("履歴でmarkerが見つからない:", item.markerId);
-}
-
-}
+let markerNumber =
+    item.markerNumber ?? "";
 
         const text =
             document.createElement("span");
