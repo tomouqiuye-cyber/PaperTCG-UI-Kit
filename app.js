@@ -148,7 +148,22 @@ editHistory.forEach(history => {
     if (!marker || !history.overlayElement) {
         return;
     }
+// 現在時刻に該当する固定編集イベントを取得
+function getActiveEditEvents(currentTime) {
 
+    return editHistory.filter(history => {
+
+        const startTime = history.time;
+        const endTime =
+            history.time + history.duration;
+
+        return (
+            currentTime >= startTime &&
+            currentTime <= endTime
+        );
+    });
+
+}
  const startTime = history.time;
 const endTime = history.time + history.duration;
 
