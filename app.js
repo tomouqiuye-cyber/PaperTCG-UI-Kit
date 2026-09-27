@@ -195,6 +195,9 @@ if (
     currentTime <= endTime
 ) {
 
+    console.log("番号を表示します:", history.overlayElement);
+
+    // 今使っている表示処理
     history.overlayElement.style.opacity = "1";
 
 } else {
