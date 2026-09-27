@@ -187,6 +187,9 @@ activeEvents.forEach(history => {
     const endTime =
         history.time + history.duration;
 
+console.log("表示判定:", history.time, currentTime);
+
+
 if (
     currentTime >= startTime &&
     currentTime <= endTime
