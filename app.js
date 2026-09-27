@@ -137,20 +137,7 @@ if (currentTimeDisplay) {
 
 }
 
-editHistory.forEach(history => {
 
-    if (history.markerId === null) {
-        return;
-    }
-
-    const marker =
-        markers.find(marker =>
-            marker.id === history.markerId
-        );
-
-    if (!marker || !history.overlayElement) {
-        return;
-    }
 // 現在時刻に該当する固定編集イベントを取得
 function getActiveEditEvents(currentTime) {
 
@@ -172,6 +159,14 @@ function getActiveEditEvents(currentTime) {
 
 editHistory.forEach(history => {
 
+    if (history.markerId === null) {
+        return;
+    }
+
+    if (!history.overlayElement) {
+        return;
+    }
+
     const startTime = history.time;
     const endTime =
         history.time + history.duration;
@@ -190,7 +185,9 @@ editHistory.forEach(history => {
     }
 
 });
-    
+
+
+});
 // ======================================================
 // 自分 / 相手 切替
 // ======================================================
