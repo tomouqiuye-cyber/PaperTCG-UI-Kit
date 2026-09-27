@@ -94,6 +94,20 @@ const input = new Input({
     source: new BlobSource(file)
 });
 
+function renderFrame(currentTime) {
+
+    const activeEvents =
+        getActiveEditEvents(currentTime);
+
+    console.log(
+        "レンダリング対象時刻:",
+        currentTime,
+        "有効イベント:",
+        activeEvents
+    );
+
+}
+
 const duration = await input.computeDuration();
 
 console.log("Mediabunny duration:", duration);
@@ -173,18 +187,18 @@ activeEvents.forEach(history => {
     const endTime =
         history.time + history.duration;
 
-    if (
-        currentTime >= startTime &&
-        currentTime <= endTime
-    ) {
+if (
+    currentTime >= startTime &&
+    currentTime <= endTime
+) {
 
-        history.overlayElement.style.color = "white";
+    history.overlayElement.style.visibility = "visible";
 
-    } else {
+} else {
 
-        history.overlayElement.style.color = "transparent";
+    history.overlayElement.style.visibility = "hidden";
 
-    }
+}
 
 });
 
