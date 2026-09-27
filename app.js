@@ -202,10 +202,13 @@ if (
 
 } else {
 
+    console.log("番号を消します:", history.overlayElement);
+
     history.overlayElement.style.color = "transparent";
     history.overlayElement.style.opacity = "0";
 
 }
+
 });
 
 
