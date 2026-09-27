@@ -135,7 +135,7 @@ if (currentTimeDisplay) {
     currentTimeDisplay.textContent =
         `${video.currentTime.toFixed(2)}秒`;
 
-
+}
 
 editHistory.forEach(history => {
 
