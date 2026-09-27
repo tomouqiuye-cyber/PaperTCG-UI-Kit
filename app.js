@@ -192,11 +192,11 @@ if (
     currentTime <= endTime
 ) {
 
-    history.overlayElement.style.visibility = "visible";
+    history.overlayElement.style.opacity = "1";
 
 } else {
 
-    history.overlayElement.style.visibility = "hidden";
+    history.overlayElement.style.opacity = "0";
 
 }
 
