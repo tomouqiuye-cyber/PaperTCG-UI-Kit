@@ -134,6 +134,9 @@ if (currentTimeDisplay) {
 
     currentTimeDisplay.textContent =
         `${video.currentTime.toFixed(2)}秒`;
+
+
+
 editHistory.forEach(history => {
 
     if (history.markerId === null) {
@@ -161,23 +164,30 @@ function getActiveEditEvents(currentTime) {
             currentTime >= startTime &&
             currentTime <= endTime
         );
+
     });
 
 }
- const startTime = history.time;
-const endTime = history.time + history.duration;
+
+
+editHistory.forEach(history => {
+
+    const startTime = history.time;
+    const endTime =
+        history.time + history.duration;
 
     if (
         currentTime >= startTime &&
         currentTime <= endTime
     ) {
-        history.overlayElement.style.color = "white";
-    } else {
-        history.overlayElement.style.color = "transparent";
-     }
 
-});
-   }
+        history.overlayElement.style.color = "white";
+
+    } else {
+
+        history.overlayElement.style.color = "transparent";
+
+    }
 
 });
     
