@@ -170,6 +170,7 @@ function getActiveEditEvents(currentTime) {
 
 }
 
+const activeEvents = getActiveEditEvents(currentTime);
 
 editHistory.forEach(history => {
 
