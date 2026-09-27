@@ -171,9 +171,7 @@ function getActiveEditEvents(currentTime) {
 }
 
 
-const activeEvents = getActiveEditEvents(currentTime);
-
-activeEvents.forEach(history => {
+editHistory.forEach(history => {
 
     if (history.markerId === null) {
         return;
