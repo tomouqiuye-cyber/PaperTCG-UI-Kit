@@ -177,6 +177,31 @@ function renderFrame(currentTime) {
     });
 
 }
+
+// ======================================================
+// 現在時刻に描画すべき固定編集イベントを取得
+// ======================================================
+
+function getRenderEvents(currentTime) {
+
+    const activeEvents =
+        getActiveEditEvents(currentTime);
+
+    return activeEvents.filter(history => {
+
+        if (history.markerId === null) {
+            return false;
+        }
+
+        if (!history.overlayElement) {
+            return false;
+        }
+
+        return true;
+
+    });
+}
+
  video.addEventListener("timeupdate", () => {
 
     const currentTime = video.currentTime;
