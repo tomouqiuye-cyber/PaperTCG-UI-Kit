@@ -54,7 +54,11 @@ const resetNumberButton =
 const fields =
     document.querySelectorAll(".field");
 
+const renderCanvas =
+    document.getElementById("render-canvas");
 
+const renderContext =
+    renderCanvas.getContext("2d");
 // ==========================
 // 動画テスト
 // ==========================
