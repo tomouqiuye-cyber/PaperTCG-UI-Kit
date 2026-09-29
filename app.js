@@ -98,20 +98,6 @@ const input = new Input({
     source: new BlobSource(file)
 });
 
-function renderFrame(currentTime) {
-
-    const activeEvents =
-        getActiveEditEvents(currentTime);
-
-    console.log(
-        "レンダリング対象時刻:",
-        currentTime,
-        "有効イベント:",
-        activeEvents
-    );
-
-}
-
 const duration = await input.computeDuration();
 
 console.log("Mediabunny duration:", duration);
@@ -141,6 +127,37 @@ video.load();
     if (videoOverlay) {
     console.log("video-overlay を取得しました");
 }
+
+// ======================================================
+// 現在の動画フレームをCanvasへ描画
+// ======================================================
+
+function drawVideoFrame() {
+
+    if (!video.videoWidth || !video.videoHeight) {
+        return;
+    }
+
+    renderCanvas.width = video.videoWidth;
+    renderCanvas.height = video.videoHeight;
+
+    renderContext.clearRect(
+        0,
+        0,
+        renderCanvas.width,
+        renderCanvas.height
+    );
+
+    renderContext.drawImage(
+        video,
+        0,
+        0,
+        renderCanvas.width,
+        renderCanvas.height
+    );
+
+}
+
 // ======================================================
 // 固定編集イベントを現在時刻に合わせて描画する
 // ======================================================
@@ -280,6 +297,10 @@ if (
 
 
 });
+
+renderFrame(currentTime);
+drawVideoFrame();
+
 // ======================================================
 // 自分 / 相手 切替
 // ======================================================
