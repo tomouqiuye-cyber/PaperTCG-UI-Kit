@@ -137,7 +137,46 @@ video.load();
     if (videoOverlay) {
     console.log("video-overlay を取得しました");
 }
+// ======================================================
+// 固定編集イベントを現在時刻に合わせて描画する
+// ======================================================
 
+function renderFrame(currentTime) {
+
+    editHistory.forEach(history => {
+
+        // マーカーに紐づかない履歴は対象外
+        if (history.markerId === null) {
+            return;
+        }
+
+        // 描画用DOMがない場合は対象外
+        if (!history.overlayElement) {
+            return;
+        }
+
+        const startTime = history.time;
+        const endTime =
+            history.time + history.duration;
+
+        if (
+            currentTime >= startTime &&
+            currentTime <= endTime
+        ) {
+
+            history.overlayElement.style.color = "white";
+            history.overlayElement.style.opacity = "1";
+
+        } else {
+
+            history.overlayElement.style.color = "transparent";
+            history.overlayElement.style.opacity = "0";
+
+        }
+
+    });
+
+}
  video.addEventListener("timeupdate", () => {
 
     const currentTime = video.currentTime;
