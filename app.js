@@ -159,7 +159,34 @@ function drawVideoFrame() {
 }
 function drawMarkersToCanvas() {
 
-    markers.forEach(marker => {
+    const currentTime = video.currentTime;
+
+    editHistory.forEach(history => {
+
+        if (history.markerId === null) {
+            return;
+        }
+
+        const startTime = history.time;
+        const endTime =
+            history.time + history.duration;
+
+        // 3秒間だけCanvasへ描く
+        if (
+            currentTime < startTime ||
+            currentTime > endTime
+        ) {
+            return;
+        }
+
+        const marker =
+            markers.find(marker =>
+                marker.id === history.markerId
+            );
+
+        if (!marker) {
+            return;
+        }
 
         const fieldWidth =
             marker.field.clientWidth;
@@ -178,10 +205,10 @@ function drawMarkersToCanvas() {
             renderCanvas.height / fieldHeight;
 
         const canvasX =
-            marker.x * scaleX;
+            history.x * scaleX;
 
         const canvasY =
-            marker.y * scaleY;
+            history.y * scaleY;
 
         renderContext.fillStyle = "white";
 
@@ -189,7 +216,7 @@ function drawMarkersToCanvas() {
             `${30 * scaleY}px sans-serif`;
 
         renderContext.fillText(
-            marker.number,
+            history.markerNumber,
             canvasX,
             canvasY + (30 * scaleY)
         );
