@@ -157,7 +157,46 @@ function drawVideoFrame() {
     );
 
 }
+function drawMarkersToCanvas() {
 
+    markers.forEach(marker => {
+
+        const fieldWidth =
+            marker.field.clientWidth;
+
+        const fieldHeight =
+            marker.field.clientHeight;
+
+        if (!fieldWidth || !fieldHeight) {
+            return;
+        }
+
+        const scaleX =
+            renderCanvas.width / fieldWidth;
+
+        const scaleY =
+            renderCanvas.height / fieldHeight;
+
+        const canvasX =
+            marker.x * scaleX;
+
+        const canvasY =
+            marker.y * scaleY;
+
+        renderContext.fillStyle = "white";
+
+        renderContext.font =
+            `${30 * scaleY}px sans-serif`;
+
+        renderContext.fillText(
+            marker.number,
+            canvasX,
+            canvasY + (30 * scaleY)
+        );
+
+    });
+
+}
 // ======================================================
 // 固定編集イベントを現在時刻に合わせて描画する
 // ======================================================
@@ -296,7 +335,7 @@ if (
 });
 renderFrame(currentTime);
 drawVideoFrame();
-
+drawMarkersToCanvas();
 });
 
 // ======================================================
