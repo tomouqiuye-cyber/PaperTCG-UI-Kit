@@ -157,6 +157,7 @@ function drawVideoFrame() {
     );
 
 }
+
 function drawMarkersToCanvas() {
 
     const currentTime = video.currentTime;
