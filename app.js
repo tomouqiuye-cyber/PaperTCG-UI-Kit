@@ -88,7 +88,17 @@ const videoOverlay =
 const exportVideoButton =
     document.getElementById("export-video");
 exportVideoButton.addEventListener("click", () => {
-    console.log("動画書き出しは一旦停止しています。");
+    const videoFile =
+        document.getElementById("video-file");
+
+    const file = videoFile.files[0];
+
+    if (!file) {
+        alert("先に動画ファイルを選択してください。");
+        return;
+    }
+
+    console.log("書き出し対象:", file.name);
 });
 document.addEventListener("DOMContentLoaded", () => {
 
