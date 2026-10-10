@@ -8,11 +8,17 @@
 // ======================================================
 // 基本状態
 // ======================================================
+
 import {
     Input,
     BlobSource,
-    ALL_FORMATS
+    ALL_FORMATS,
+    Conversion,
+    Output,
+    Mp4OutputFormat,
+    BufferTarget
 } from "https://cdn.jsdelivr.net/npm/mediabunny/+esm";
+
 let currentPlayer = "self";
 
 
