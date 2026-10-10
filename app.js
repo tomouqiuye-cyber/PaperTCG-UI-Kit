@@ -204,24 +204,23 @@ function drawMarkersToCanvas(currentTime = video.currentTime) {
             return;
         }
 
-        const scaleX =
-            renderCanvas.width / fieldWidth;
+const scaleX =
+    canvas.width / fieldWidth;
 
-        const scaleY =
-            renderCanvas.height / fieldHeight;
-
+const scaleY =
+    canvas.height / fieldHeight;
         const canvasX =
             history.x * scaleX;
 
         const canvasY =
             history.y * scaleY;
 
-        renderContext.fillStyle = "white";
+        context.fillStyle = "white";
 
-        renderContext.font =
-            `${30 * scaleY}px sans-serif`;
+        context.font =
+    `${30 * scaleY}px sans-serif`;
 
-        renderContext.fillText(
+       context.fillText(
             history.markerNumber,
             canvasX,
             canvasY + (30 * scaleY)
