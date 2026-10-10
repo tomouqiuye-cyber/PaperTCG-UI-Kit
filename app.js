@@ -110,7 +110,12 @@ console.log("動画の長さ:", duration);const output = new Output({
     format: new Mp4OutputFormat(),
     target: new BufferTarget()
 });
+const conversion = await Conversion.init({
+    input,
+    output
 });
+
+console.log("変換の準備:", conversion.isValid);});
 document.addEventListener("DOMContentLoaded", () => {
 
     const videoFile =
