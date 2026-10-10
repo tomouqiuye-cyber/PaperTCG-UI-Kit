@@ -164,8 +164,11 @@ function drawVideoFrame() {
 
 }
 
-function drawMarkersToCanvas(currentTime = video.currentTime) {
-
+function drawMarkersToCanvas(
+    currentTime = video.currentTime,
+    context = renderContext,
+    canvas = renderCanvas
+) {
 
     editHistory.forEach(history => {
 
