@@ -158,9 +158,8 @@ function drawVideoFrame() {
 
 }
 
-function drawMarkersToCanvas() {
+function drawMarkersToCanvas(currentTime = video.currentTime) {
 
-    const currentTime = video.currentTime;
 
     editHistory.forEach(history => {
 
