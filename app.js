@@ -106,7 +106,10 @@ const input = new Input({
 });
 
 const duration = await input.computeDuration();
-console.log("動画の長さ:", duration);
+console.log("動画の長さ:", duration);const output = new Output({
+    format: new Mp4OutputFormat(),
+    target: new BufferTarget()
+});
 });
 document.addEventListener("DOMContentLoaded", () => {
 
