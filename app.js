@@ -99,6 +99,14 @@ exportVideoButton.addEventListener("click", () => {
     }
 
     console.log("書き出し対象:", file.name);
+
+const input = new Input({
+    formats: ALL_FORMATS,
+    source: new BlobSource(file)
+});
+
+const duration = await input.computeDuration();
+console.log("動画の長さ:", duration);
 });
 document.addEventListener("DOMContentLoaded", () => {
 
