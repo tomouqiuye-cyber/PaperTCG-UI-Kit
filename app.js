@@ -112,8 +112,30 @@ console.log("動画の長さ:", duration);const output = new Output({
 });
 const conversion = await Conversion.init({
     input,
-    output
+    output,
+    video: {
+        process: (sample) => {
+            const canvas = new OffscreenCanvas(
+                sample.displayWidth,
+                sample.displayHeight
+            );
+
+            const context = canvas.getContext("2d");
+
+            sample.draw(context, 0, 0);
+
+            drawMarkersToCanvas(
+                sample.timestamp,
+                context,
+                canvas
+            );
+
+            return canvas;
+        }
+    }
 });
+
+console.log("変換の準備:", conversion.isValid);
 
 console.log("変換の準備:", conversion.isValid);});
 document.addEventListener("DOMContentLoaded", () => {
