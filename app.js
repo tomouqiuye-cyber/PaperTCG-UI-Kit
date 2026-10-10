@@ -225,6 +225,41 @@ function drawMarkersToCanvas() {
     });
 
 }
+
+async function drawCanvasAtTime(targetTime) {
+    if (!Number.isFinite(targetTime)) {
+        return;
+    }
+
+    if (video.readyState < 2) {
+        console.warn("動画の読み込みが完了していません。");
+        return;
+    }
+
+    if (!Number.isFinite(video.duration)) {
+        console.warn("動画の長さを取得できません。");
+        return;
+    }
+
+    const safeTime = Math.max(
+        0,
+        Math.min(targetTime, video.duration)
+    );
+
+    if (Math.abs(video.currentTime - safeTime) > 0.001) {
+        await new Promise(resolve => {
+            video.addEventListener("seeked", resolve, {
+                once: true
+            });
+
+            video.currentTime = safeTime;
+        });
+    }
+
+    drawVideoFrame();
+    drawMarkersToCanvas();
+}
+
 // ======================================================
 // 固定編集イベントを現在時刻に合わせて描画する
 // ======================================================
