@@ -87,7 +87,7 @@ const videoOverlay =
     document.getElementById("video-overlay");
 const exportVideoButton =
     document.getElementById("export-video");
-exportVideoButton.addEventListener("click", () => {
+exportVideoButton.addEventListener("click", async () => {
     const videoFile =
         document.getElementById("video-file");
 
