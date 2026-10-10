@@ -255,8 +255,8 @@ async function drawCanvasAtTime(targetTime) {
         });
     }
 
-    drawVideoFrame();
-    drawMarkersToCanvas();
+ drawVideoFrame();
+drawMarkersToCanvas(safeTime);
 }
 
 // ======================================================
