@@ -136,7 +136,7 @@ const conversion = await Conversion.init({
 });
 
 console.log("変換の準備:", conversion.isValid);
-
+await conversion.execute();
 console.log("変換の準備:", conversion.isValid);});
 document.addEventListener("DOMContentLoaded", () => {
 
