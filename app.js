@@ -137,7 +137,7 @@ window.drawMarkersToCanvas(sample.timestamp, context, canvas);
 
 console.log("変換の準備:", conversion.isValid);
 await conversion.execute();
-console.log("変換の準備:", conversion.isValid);});
+console.log("動画変換が完了しました");
 document.addEventListener("DOMContentLoaded", () => {
 
     const videoFile =
