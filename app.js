@@ -137,7 +137,16 @@ window.drawMarkersToCanvas(sample.timestamp, context, canvas);
 
 console.log("変換の準備:", conversion.isValid);
 await conversion.execute();
-console.log("動画変換が完了しました");
+console.log("動画変換が完了しました");const buffer = output.target.buffer;
+const blob = new Blob([buffer], { type: "video/mp4" });
+const url = URL.createObjectURL(blob);
+
+const link = document.createElement("a");
+link.href = url;
+link.download = "export.mp4";
+link.click();
+
+URL.revokeObjectURL(url);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
