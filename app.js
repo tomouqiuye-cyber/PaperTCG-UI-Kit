@@ -129,7 +129,7 @@ const conversion = await Conversion.init({
                 context,
                 canvas
             );
-
+window.drawMarkersToCanvas(sample.timestamp, context, canvas);
             return canvas;
         }
     }
@@ -280,7 +280,7 @@ const scaleY =
     });
 
 }
-
+window.drawMarkersToCanvas = drawMarkersToCanvas;
 async function drawCanvasAtTime(targetTime) {
     if (!Number.isFinite(targetTime)) {
         return;
